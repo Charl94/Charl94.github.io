@@ -1,275 +1,227 @@
-/* --- CÀI ĐẶT CHUNG & BIẾN MÀU SẮC --- */
+/* ------------------------------------------------------------------- */
+/* CSS TÙY CHỈNH CHO TRANG WEB CÁ NHÂN (MỆNH HỎA & MỘC TƯƠNG SINH)     */
+/* ------------------------------------------------------------------- */
+
+/* Định nghĩa màu sắc theo Ngũ Hành */
 :root {
-    --primary-color: #FF4500;  /* Màu Cam-Đỏ (OrangeRed) */
-    --secondary-color: #E63946; /* Màu Đỏ mạnh */
-    --text-color: #333333;
-    --light-text-color: #f4f4f4;
-    --bg-color: #FFF8F0; /* Màu nền trắng ngà cho ấm áp */
+    /* Mệnh Hỏa (Sơn Đầu Hỏa) */
+    --color-fire-primary: #C2410C; /* Cam Đất Sâu - Chủ đạo */
+    --color-fire-light: #FDBA74;   /* Cam Nhạt - Nền/Highlight */
+    /* Mệnh Mộc (Tương Sinh) */
+    --color-wood-accent: #10B981;  /* Xanh Lục Bảo - Tương tác/Hover */
+    /* Màu nền & Text */
+    --color-background: #F9FAFB;
+    --color-text-dark: #1F2937;
+    --color-text-light: #FFFFFF;
 }
 
-* {
-    box-sizing: border-box;
+/* Thiết lập cơ bản */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    
-    /* Canh chỉnh layout toàn trang (Sticky Footer) */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
-    display: flex;
-    gap: 2rem; /* Khoảng cách giữa 2 cột */
-}
-
-h1, h2, h3 {
-    color: var(--secondary-color);
-}
-
-/* --- HEADER --- */
-header {
-    background: #ffffff;
-    padding: 0.5rem 23rem; /* Padding để canh lề trái "một tí" */
-    border-bottom: 3px solid var(--primary-color);
+/* -------------------- HEADER -------------------- */
+.main-header {
+    background-color: var(--color-text-light);
+    border-bottom: 3px solid var(--color-fire-primary);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Tùy chỉnh Logo & Tên (Nằm ngang) --- */
-header .logo a {
-    display: flex; /* Xếp logo và tên trên cùng một hàng */
-    align-items: center; /* Canh giữa chúng theo chiều dọc */
-    gap: 12px; /* Khoảng cách giữa logo và tên */
-    text-decoration: none; /* Bỏ gạch chân của thẻ a */
-}
-
-header .logo img {
-    height: 45px; /* Chiều cao của logo */
-    width: auto;
-}
-
-header .logo h1 {
-    color: var(--text-color);
+.logo-name {
+    /* Tên nổi bật, thu hút sự tập trung (Mệnh Hỏa) */
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    margin: 0; /* Bỏ khoảng cách mặc định của thẻ h1 */
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav a {
+    font-weight: 700;
+    color: var(--color-fire-primary);
+    text-transform: uppercase;
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
 }
 
-header nav a:hover {
-    color: white;
-    background-color: var(--primary-color);
-    border-radius: 5px;
+.logo-name:hover {
+    color: var(--color-wood-accent); /* Hiệu ứng Mộc tương sinh */
 }
 
-
-/* --- PHẦN THÂN TRANG WEB --- */
-main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    flex: 1; /* Giúp đẩy footer xuống cuối trang */
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
 }
 
-.left-column, .right-column {
-    padding: 1.5rem;
-    background: #ffffff;
+.nav-item {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: var(--color-wood-accent); /* Mộc */
+    color: var(--color-text-light);
+}
+
+.nav-contact {
+    /* Nút Liên Hệ nổi bật (Mệnh Hỏa) */
+    background-color: var(--color-fire-primary);
+    color: var(--color-text-light) !important;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(194, 65, 12, 0.4);
 }
 
+.nav-contact:hover {
+    background-color: var(--color-wood-accent); /* Mộc */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.6);
+}
+
+/* -------------------- BODY (MAIN CONTENT) -------------------- */
+.main-content {
+    flex-grow: 1; /* Cho phép phần nội dung chiếm hết không gian còn lại */
+    max-width: 1200px;
+    width: 90%;
+    margin: 3rem auto;
+    display: grid;
+    gap: 3rem;
+    /* Mặc định cho màn hình lớn: 2 cột */
+    grid-template-columns: 1fr 2fr;
+}
+
+/* Cột Trái: Thông tin cơ bản & Quote */
 .left-column {
-    flex: 1; /* Cột trái chiếm 1 phần */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-text-light);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    height: fit-content; /* Giữ cột nhỏ gọn */
+    border-left: 5px solid var(--color-wood-accent); /* Viền Mộc */
 }
 
-.right-column {
-    flex: 2; /* Cột phải chiếm 2 phần, rộng hơn */
+.portrait-frame {
+    /* Frame ảnh lấy màu Hỏa làm viền */
+    border: 5px solid var(--color-fire-primary);
+    padding: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
 }
 
-/* --- CỘT TRÁI: AVATAR & GIỚI THIỆU --- */
-.avatar {
+.portrait-frame:hover {
+    border-color: var(--color-wood-accent); /* Hover Mộc */
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1); /* Hiệu ứng tỏa sáng */
+}
+
+.portrait-img {
+    display: block;
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* Tạo hình tròn */
-    border: 5px solid var(--primary-color);
-    object-fit: cover; /* Đảm bảo ảnh không bị méo */
-    margin: 1rem 0;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.about-me-text {
-    text-align: justify;
-    margin-bottom: 1.5rem;
-}
-
-.quote-frame {
-    margin-top: 1rem;
+.quote-box {
+    margin-top: 1.5rem;
     padding: 1rem;
-    background: var(--bg-color);
-    border-left: 5px solid var(--secondary-color);
-    text-align: left;
-    font-style: italic;
+    border-top: 2px dashed var(--color-fire-light);
 }
 
-/* --- CỘT PHẢI: TIMELINE (ĐÃ CẬP NHẬT) --- */
-.timeline-item {
-    display: flex;
-    align-items: flex-start; /* Canh các mục theo lề trên */
+.favorite-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-fire-primary);
+    margin-bottom: 0.5rem;
+}
+
+.quote-author {
+    display: block;
+    font-size: 0.9rem;
+    color: #6B7280; /* Xám nhẹ */
+}
+
+/* Cột Phải: Bài chia sẻ */
+.right-column {
+    padding: 2rem;
+    background-color: var(--color-text-light);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.main-title {
+    color: var(--color-fire-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-fire-light);
+    padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
 }
 
-.timeline-date {
-    /* Cố định độ rộng của cột ngày tháng, không co, không giãn */
-    flex: 0 0 120px;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-align: right;
-    padding-right: 1.5rem; /* Thêm khoảng đệm bên phải */
+.reflection-text {
+    margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
-.timeline-content {
-    border-left: 3px solid var(--secondary-color); /* Giữ lại đường kẻ cho từng sự kiện */
-    padding-left: 1.5rem; /* Tạo khoảng cách giữa đường kẻ và chữ */
+/* -------------------- FOOTER -------------------- */
+.main-footer {
+    background-color: var(--color-text-dark); /* Nền tối */
+    color: #9CA3AF;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.75rem; /* Rất nhỏ, theo yêu cầu */
+    margin-top: auto; /* Đẩy Footer xuống cuối trang */
+    border-top: 3px solid var(--color-wood-accent); /* Mộc */
 }
 
-.timeline-content h3 {
-    margin-top: 0;
-}
-
-
-.contact-info p {
-    margin: 0.25rem 0; /* Giảm khoảng cách giữa các dòng chữ */
-}
-
-.contact-info a {
-    color: var(--primary-color);
+.footer-link {
+    color: var(--color-fire-light);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.contact-info a:hover {
+.footer-link:hover {
+    color: var(--color-wood-accent);
     text-decoration: underline;
 }
 
-.contact-info i {
-    margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-    color: var(--primary-color);
-}
-
-/* --- FOOTER (PHƯƠNG ÁN 3: TẬP TRUNG ICON MẠNG XÃ HỘI) --- */
-footer {
-    background: var(--text-color);
-    color: var(--light-text-color);
-    padding: 0.5rem 6rem;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center; /* Đẩy các khối ra hai bên */
-    align-items: center; /* Canh giữa các khối theo chiều dọc */
-    flex-wrap: wrap;
-}
-
-.footer-left h2 {
-    color: var(--light-text-color);
-    font-size: 1.8rem;
-    margin: 0;
-	position: relative;
-    top: -15px;
-    left: -15px;
-    right: 0;
-}
-
-.footer-center {
-    display: flex;
-    flex-direction: column; /* Xếp icon và bản quyền theo chiều dọc */
-    align-items: center;   /* Canh giữa chúng */
-    gap: 0.8rem; /* Khoảng cách giữa icon và bản quyền */
-}
-
-.social-icons {
-    display: flex;
-    gap: 1.5rem; /* Khoảng cách giữa các icon */
-}
-
-.social-icons a {
-    color: var(--primary-color);
-    font-size: 2rem;
-    transition: transform 0.3s ease-in-out;
-}
-
-.social-icons a:hover {
-    color: var(--secondary-color);
-    transform: scale(1.2);
-}
-
-.copyright {
-    font-size: 0.9rem;
-    text-align: center;
-    margin: 0;
-}
-
-.footer-right {
-    /* Để trống */
-}
-.social-img-icon {
-    height: 2rem;  /* Đặt chiều cao bằng với font-size của các icon kia */
-    width: auto;   /* Chiều rộng tự động để giữ tỷ lệ */
-    vertical-align: middle; /* Canh giữa icon theo chiều dọc (nếu cần) */
-}
-/* --- REPONSIVE CHO THIẾT BỊ DI ĐỘNG --- */
-@media(max-width: 768px) {
-    header {
+/* -------------------- RESPONSIVE DESIGN (Cho Mobile) -------------------- */
+@media (max-width: 768px) {
+    .main-header {
         flex-direction: column;
+        text-align: center;
         gap: 1rem;
-        padding: 1rem 2rem;
-    }
-    
-    .container {
-        flex-direction: column;
     }
 
-    .timeline-date {
-        flex: 0 0 90px;
-        padding-right: 1rem;
+    .main-nav {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    /* === THÊM ĐOẠN CODE NÀY VÀO === */
-    header nav a {
-        white-space: nowrap; /* 1. Ngăn chữ tự xuống dòng */
-        font-size: 0.9rem;   /* 2. Giảm nhẹ cỡ chữ */
-        padding: 5px 8px;    /* 3. Giảm khoảng đệm của mỗi tab */
+    .main-content {
+        /* Chuyển sang bố cục 1 cột trên màn hình nhỏ */
+        grid-template-columns: 1fr;
+        width: 95%;
+        margin: 2rem auto;
     }
 
-    header nav ul li {
-        margin-left: 5px;    /* 3. Giảm khoảng cách giữa các tab */
+    .left-column, .right-column {
+        padding: 1.5rem;
     }
-    /* === KẾT THÚC PHẦN THÊM MỚI === */
 }
