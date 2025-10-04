@@ -225,7 +225,13 @@ body {
         flex-direction: column; /* Chuyển Header thành cột */
         text-align: center;
         gap: 1rem;
-    }
+		position: static;
+	}
+	.logo{
+		position: static;
+		transform: none;
+		margin-bottom: 0.5rem;
+	}
 
     .main-nav {
         justify-content: center;
