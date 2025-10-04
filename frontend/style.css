@@ -1,1 +1,275 @@
+/* --- CÀI ĐẶT CHUNG & BIẾN MÀU SẮC --- */
+:root {
+    --primary-color: #FF4500;  /* Màu Cam-Đỏ (OrangeRed) */
+    --secondary-color: #E63946; /* Màu Đỏ mạnh */
+    --text-color: #333333;
+    --light-text-color: #f4f4f4;
+    --bg-color: #FFF8F0; /* Màu nền trắng ngà cho ấm áp */
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    
+    /* Canh chỉnh layout toàn trang (Sticky Footer) */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem; /* Khoảng cách giữa 2 cột */
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+}
+
+/* --- HEADER --- */
+header {
+    background: #ffffff;
+    padding: 0.5rem 23rem; /* Padding để canh lề trái "một tí" */
+    border-bottom: 3px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* --- Tùy chỉnh Logo & Tên (Nằm ngang) --- */
+header .logo a {
+    display: flex; /* Xếp logo và tên trên cùng một hàng */
+    align-items: center; /* Canh giữa chúng theo chiều dọc */
+    gap: 12px; /* Khoảng cách giữa logo và tên */
+    text-decoration: none; /* Bỏ gạch chân của thẻ a */
+}
+
+header .logo img {
+    height: 45px; /* Chiều cao của logo */
+    width: auto;
+}
+
+header .logo h1 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin: 0; /* Bỏ khoảng cách mặc định của thẻ h1 */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+header nav a:hover {
+    color: white;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+
+/* --- PHẦN THÂN TRANG WEB --- */
+main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex: 1; /* Giúp đẩy footer xuống cuối trang */
+}
+
+.left-column, .right-column {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.left-column {
+    flex: 1; /* Cột trái chiếm 1 phần */
+    text-align: center;
+}
+
+.right-column {
+    flex: 2; /* Cột phải chiếm 2 phần, rộng hơn */
+}
+
+/* --- CỘT TRÁI: AVATAR & GIỚI THIỆU --- */
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Tạo hình tròn */
+    border: 5px solid var(--primary-color);
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    margin: 1rem 0;
+}
+
+.about-me-text {
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.quote-frame {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-left: 5px solid var(--secondary-color);
+    text-align: left;
+    font-style: italic;
+}
+
+/* --- CỘT PHẢI: TIMELINE (ĐÃ CẬP NHẬT) --- */
+.timeline-item {
+    display: flex;
+    align-items: flex-start; /* Canh các mục theo lề trên */
+    margin-bottom: 1.5rem;
+}
+
+.timeline-date {
+    /* Cố định độ rộng của cột ngày tháng, không co, không giãn */
+    flex: 0 0 120px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: right;
+    padding-right: 1.5rem; /* Thêm khoảng đệm bên phải */
+}
+
+.timeline-content {
+    border-left: 3px solid var(--secondary-color); /* Giữ lại đường kẻ cho từng sự kiện */
+    padding-left: 1.5rem; /* Tạo khoảng cách giữa đường kẻ và chữ */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+}
+
+
+.contact-info p {
+    margin: 0.25rem 0; /* Giảm khoảng cách giữa các dòng chữ */
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-info i {
+    margin-right: 8px; /* Khoảng cách giữa icon và chữ */
+    color: var(--primary-color);
+}
+
+/* --- FOOTER (PHƯƠNG ÁN 3: TẬP TRUNG ICON MẠNG XÃ HỘI) --- */
+footer {
+    background: var(--text-color);
+    color: var(--light-text-color);
+    padding: 0.5rem 6rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center; /* Đẩy các khối ra hai bên */
+    align-items: center; /* Canh giữa các khối theo chiều dọc */
+    flex-wrap: wrap;
+}
+
+.footer-left h2 {
+    color: var(--light-text-color);
+    font-size: 1.8rem;
+    margin: 0;
+	position: relative;
+    top: -15px;
+    left: -15px;
+    right: 0;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column; /* Xếp icon và bản quyền theo chiều dọc */
+    align-items: center;   /* Canh giữa chúng */
+    gap: 0.8rem; /* Khoảng cách giữa icon và bản quyền */
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem; /* Khoảng cách giữa các icon */
+}
+
+.social-icons a {
+    color: var(--primary-color);
+    font-size: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+}
+
+.footer-right {
+    /* Để trống */
+}
+.social-img-icon {
+    height: 2rem;  /* Đặt chiều cao bằng với font-size của các icon kia */
+    width: auto;   /* Chiều rộng tự động để giữ tỷ lệ */
+    vertical-align: middle; /* Canh giữa icon theo chiều dọc (nếu cần) */
+}
+/* --- REPONSIVE CHO THIẾT BỊ DI ĐỘNG --- */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+    
+    .container {
+        flex-direction: column;
+    }
+
+    .timeline-date {
+        flex: 0 0 90px;
+        padding-right: 1rem;
+    }
+
+    /* === THÊM ĐOẠN CODE NÀY VÀO === */
+    header nav a {
+        white-space: nowrap; /* 1. Ngăn chữ tự xuống dòng */
+        font-size: 0.9rem;   /* 2. Giảm nhẹ cỡ chữ */
+        padding: 5px 8px;    /* 3. Giảm khoảng đệm của mỗi tab */
+    }
+
+    header nav ul li {
+        margin-left: 5px;    /* 3. Giảm khoảng cách giữa các tab */
+    }
+    /* === KẾT THÚC PHẦN THÊM MỚI === */
+}
