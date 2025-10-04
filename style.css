@@ -5,59 +5,59 @@
 /* Định nghĩa màu sắc theo Ngũ Hành */
 :root {
     /* Mệnh Hỏa (Sơn Đầu Hỏa) */
-    --color-fire-primary: #C2410C; /* Cam Đất Sâu - Chủ đạo */
-    --color-fire-light: #FDBA74;    /* Cam Nhạt - Nền/Highlight */
+    --color-fire-primary: #C2410C; /* Cam Đất Sâu - Màu chủ đạo, dùng cho tiêu đề, khung ảnh */
+    --color-fire-light: #FDBA74;    /* Cam Nhạt - Dùng cho nền, đường kẻ phụ, màu chữ nhẹ */
     /* Mệnh Mộc (Tương Sinh) */
-    --color-wood-accent: #10B981;  /* Xanh Lục Bảo - Tương tác/Hover */
+    --color-wood-accent: #10B981;  /* Xanh Lục Bảo - Dùng cho tương tác (hover), viền nổi bật */
     /* Màu nền & Text */
-    --color-background: #F9FAFB;
-    --color-text-dark: #1F2937;
-    --color-text-light: #FFFFFF;
+    --color-background: #F9FAFB; /* Nền tổng thể của trang web (rất nhạt) */
+    --color-text-dark: #1F2937;  /* Màu chữ chính (Đen đậm) */
+    --color-text-light: #FFFFFF; /* Màu nền cho các thẻ (Trắng) */
 }
 
 /* Thiết lập cơ bản */
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--color-text-dark);
-    background-color: var(--color-background);
+    font-family: 'Inter', sans-serif; /* Font cho nội dung */
+    color: var(--color-text-dark); /* Màu chữ mặc định */
+    background-color: var(--color-background); /* Màu nền trang */
     margin: 0;
     padding: 0;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Đảm bảo Footer luôn ở cuối trang */
 }
 
 /* -------------------- HEADER -------------------- */
 .main-header {
-    background-color: var(--color-text-light);
-    border-bottom: 3px solid var(--color-fire-primary);
-    padding: 1rem 5%;
+    background-color: var(--color-text-light); /* Nền trắng */
+    border-bottom: 3px solid var(--color-fire-primary); /* Đường viền dưới màu Hỏa */
+    padding: 1rem 5%; /* Padding trên dưới 1rem, trái phải 5% */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Đẩy Logo và Menu ra hai bên */
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
 }
 
 .logo-name {
     /* Tên nổi bật, thu hút sự tập trung (Mệnh Hỏa) */
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif; /* Font chữ ấn tượng */
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-fire-primary);
-    text-transform: uppercase;
+    color: var(--color-fire-primary); /* Màu Hỏa chủ đạo */
+    text-transform: uppercase; /* Viết hoa toàn bộ */
     text-decoration: none;
     transition: color 0.3s ease;
     letter-spacing: 1px;
 }
 
 .logo-name:hover {
-    color: var(--color-wood-accent); /* Hiệu ứng Mộc tương sinh */
+    color: var(--color-wood-accent); /* Hiệu ứng Hover màu Mộc tương sinh */
 }
 
 .main-nav {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Khoảng cách giữa các tab */
 }
 
 .nav-item {
@@ -70,13 +70,13 @@ body {
 }
 
 .nav-item:hover {
-    background-color: var(--color-wood-accent); /* Mộc */
-    color: var(--color-text-light);
+    background-color: var(--color-wood-accent); /* Nền Mộc khi hover */
+    color: var(--color-text-light); /* Chữ trắng khi hover */
 }
 
 .nav-contact {
     /* Nút Liên Hệ nổi bật (Mệnh Hỏa) */
-    background-color: var(--color-fire-primary);
+    background-color: var(--color-fire-primary); /* Màu Hỏa nổi bật */
     color: var(--color-text-light) !important;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -84,8 +84,8 @@ body {
 }
 
 .nav-contact:hover {
-    background-color: var(--color-wood-accent); /* Mộc */
-    transform: translateY(-2px);
+    background-color: var(--color-wood-accent); /* Nền Mộc khi hover */
+    transform: translateY(-2px); /* Hiệu ứng nhấn nhẹ */
     box-shadow: 0 4px 8px rgba(16, 185, 129, 0.6);
 }
 
@@ -94,44 +94,44 @@ body {
     flex-grow: 1; /* Cho phép phần nội dung chiếm hết không gian còn lại */
     max-width: 1200px;
     width: 90%;
-    margin: 3rem auto;
+    margin: 3rem auto; /* Căn giữa theo chiều ngang, padding trên dưới 3rem */
     display: grid;
-    gap: 3rem;
-    /* Mặc định cho màn hình lớn: 2 cột */
+    gap: 3rem; /* Khoảng cách giữa hai cột */
+    /* Mặc định cho màn hình lớn: 2 cột (Tỉ lệ 1 phần cho Trái, 2 phần cho Phải) */
     grid-template-columns: 1fr 2fr;
     /* Đảm bảo các item (cột) giãn ra bằng chiều cao của Grid container */
-    align-items: stretch;
+    align-items: stretch; /* RẤT QUAN TRỌNG: Giúp hai cột có chiều cao bằng nhau */
 }
 
 /* Cột Trái: Thông tin cơ bản & Quote */
 .left-column {
-    /* Quan trọng: Thiết lập lại Flex để nội dung được căn giữa trong chiều cao đã giãn */
+    /* Thiết lập Flex để quản lý nội dung bên trong theo chiều dọc */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Căn giữa nội dung */
     text-align: center;
     /* Đảm bảo left-column chiếm hết chiều cao của Grid cell */
     height: 100%; 
     padding: 1.5rem;
-    background-color: var(--color-text-light);
+    background-color: var(--color-text-light); /* Nền trắng */
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid var(--color-wood-accent); /* Viền Mộc */
+    border-left: 5px solid var(--color-wood-accent); /* Viền Mộc bên trái nổi bật */
 }
 
 .portrait-frame {
     /* Frame ảnh lấy màu Hỏa làm viền */
     border: 5px solid var(--color-fire-primary);
     padding: 5px;
-    border-radius: 50%;
+    border-radius: 50%; /* Làm cho frame tròn */
     overflow: hidden;
     margin-bottom: 1.5rem;
     transition: all 0.5s ease;
 }
 
 .portrait-frame:hover {
-    border-color: var(--color-wood-accent); /* Hover Mộc */
-    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1); /* Hiệu ứng tỏa sáng */
+    border-color: var(--color-wood-accent); /* Đổi sang Mộc khi hover */
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1); /* Hiệu ứng tỏa sáng nhẹ */
 }
 
 .portrait-img {
@@ -145,16 +145,16 @@ body {
 .quote-box {
     margin-top: 1.5rem;
     padding: 1rem;
-    border-top: 2px dashed var(--color-fire-light);
-    /* Tăng cường độ ưu tiên giãn nở của quote-box để nó chiếm hết phần không gian trống còn lại */
-    margin-top: auto; 
+    border-top: 2px dashed var(--color-fire-light); /* Đường gạch ngang mảnh */
+    /* Tăng cường độ ưu tiên giãn nở của quote-box */
+    margin-top: auto; /* Đẩy quote xuống đáy cột (quan trọng cho chiều cao bằng nhau) */
     padding-top: 2rem;
 }
 
 .favorite-quote {
     font-size: 1.1rem;
     font-style: italic;
-    color: var(--color-fire-primary);
+    color: var(--color-fire-primary); /* Màu Hỏa cho câu trích dẫn */
     margin-bottom: 0.5rem;
 }
 
@@ -167,23 +167,23 @@ body {
 /* Cột Phải: Bài chia sẻ */
 .right-column {
     padding: 2rem;
-    background-color: var(--color-text-light);
+    background-color: var(--color-text-light); /* Nền trắng */
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .main-title {
-    color: var(--color-fire-primary);
+    color: var(--color-fire-primary); /* Tiêu đề chính màu Hỏa */
     font-size: 2rem;
     font-weight: 700;
-    border-bottom: 2px solid var(--color-fire-light);
+    border-bottom: 2px solid var(--color-fire-light); /* Đường kẻ phân cách */
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
 }
 
 .reflection-text {
     margin-bottom: 1.5rem;
-    text-align: justify;
+    text-align: justify; /* Căn đều hai bên cho dễ đọc */
 }
 
 /* -------------------- FOOTER -------------------- */
@@ -194,7 +194,7 @@ body {
     padding: 0.75rem;
     font-size: 0.75rem; /* Rất nhỏ, theo yêu cầu */
     margin-top: auto; /* Đẩy Footer xuống cuối trang */
-    border-top: 3px solid var(--color-wood-accent); /* Mộc */
+    border-top: 3px solid var(--color-wood-accent); /* Viền trên màu Mộc */
 }
 
 .footer-link {
@@ -204,14 +204,14 @@ body {
 }
 
 .footer-link:hover {
-    color: var(--color-wood-accent);
+    color: var(--color-wood-accent); /* Hover màu Mộc */
     text-decoration: underline;
 }
 
 /* -------------------- RESPONSIVE DESIGN (Cho Mobile) -------------------- */
 @media (max-width: 768px) {
     .main-header {
-        flex-direction: column;
+        flex-direction: column; /* Chuyển Header thành cột */
         text-align: center;
         gap: 1rem;
     }
@@ -230,7 +230,7 @@ body {
 
     .left-column, .right-column {
         padding: 1.5rem;
-        /* Loại bỏ căn chỉnh chiều cao trên mobile để tránh khung hình quá lớn */
+        /* Trên mobile không cần chiều cao bằng nhau, tự động co giãn */
         height: auto; 
     }
 }
