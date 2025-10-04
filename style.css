@@ -3,70 +3,84 @@
 /* ------------------------------------------------------------------- */
 
 /* Định nghĩa màu sắc theo Ngũ Hành */
+/* Định nghĩa màu sắc theo Ngũ Hành */
 :root {
-    /* Mệnh Hỏa (Sơn Đầu Hỏa) */
-    --color-fire-primary: #C2410C; /* Cam Đất Sâu - Màu chủ đạo, dùng cho tiêu đề, khung ảnh */
-    --color-fire-light: #FDBA74;    /* Cam Nhạt - Dùng cho nền, đường kẻ phụ, màu chữ nhẹ */
-    /* Mệnh Mộc (Tương Sinh) */
-    --color-wood-accent: #10B981;  /* Xanh Lục Bảo - Dùng cho tương tác (hover), viền nổi bật */
-    /* Màu nền & Text */
-    --color-background: #F9FAFB; /* Nền tổng thể của trang web (rất nhạt) */
-    --color-text-dark: #1F2937;  /* Màu chữ chính (Đen đậm) */
-    --color-text-light: #FFFFFF; /* Màu nền cho các thẻ (Trắng) */
+    --color-fire-primary: #C2410C; /* Cam Đất Sâu */
+    --color-fire-light: #FDBA74;    /* Cam Nhạt */
+    --color-wood-accent: #10B981;  /* Xanh Lục Bảo */
+    --color-background: #F9FAFB; /* Nền tổng thể */
+    --color-text-dark: #1F2937;  /* Màu chữ chính */
+    --color-text-light: #FFFFFF; /* Màu nền cho các thẻ */
 }
 
-/* Thiết lập cơ bản */
-body {
-    font-family: 'Inter', sans-serif; /* Font cho nội dung */
-    color: var(--color-text-dark); /* Màu chữ mặc định */
-    background-color: var(--color-background); /* Màu nền trang */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Đảm bảo Footer luôn ở cuối trang */
+    flex-direction: column;
 }
 
-/* -------------------- HEADER -------------------- */
+.container {
+    max-width: 1200px; 
+    width: 90%;
+    margin: 1.5rem auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--color-fire-primary); 
+    font-family: 'Playfair Display', serif; 
+}
+
+/* -------------------- HEADER (Đồng bộ) -------------------- */
 .main-header {
-    background-color: var(--color-text-light); /* Nền trắng */
-    border-bottom: 3px solid var(--color-fire-primary); /* Đường viền dưới màu Hỏa */
-    padding: 1rem 5%; /* Padding trên dưới 1rem, trái phải 5% */
+    background-color: var(--color-text-light);
+    border-bottom: 3px solid var(--color-fire-primary);
+    padding: 1rem 5%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
-	position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 100;
 }
+
 .logo {
-	position: absolute;
-	left: 28%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 10;
-	
+    position: absolute;
+    left: 28%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .logo-name {
-    /* Tên nổi bật, thu hút sự tập trung (Mệnh Hỏa) */
-    font-family: 'Playfair Display', serif; /* Font chữ ấn tượng */
+    font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-fire-primary); /* Màu Hỏa chủ đạo */
-    text-transform: uppercase; /* Viết hoa toàn bộ */
+    color: var(--color-fire-primary);
+    text-transform: uppercase;
     text-decoration: none;
     transition: color 0.3s ease;
     letter-spacing: 1px;
 }
 
 .logo-name:hover {
-    color: var(--color-wood-accent); /* Hiệu ứng Hover màu Mộc tương sinh */
+    color: var(--color-wood-accent);
 }
 
 .main-nav {
     display: flex;
-    gap: 1.5rem; /* Khoảng cách giữa các tab */
+    gap: 1.5rem;
 }
 
 .nav-item {
@@ -78,22 +92,21 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-item:hover {
-    background-color: var(--color-wood-accent); /* Nền Mộc khi hover */
-    color: var(--color-text-light); /* Chữ trắng khi hover */
+.nav-item:hover, .nav-item.active {
+    background-color: var(--color-wood-accent);
+    color: var(--color-text-light);
 }
 
 .nav-contact {
-    /* Nút Liên Hệ nổi bật (Mệnh Hỏa) */
-    background-color: transparent; /* Tắt nền */
-    color: var(--color-text-dark) !important; /* Chữ màu tối */
-    padding: 0.5rem 0.75rem; /* Đồng nhất padding với nav-item */
-    box-shadow: none; /* Tắt bóng đổ */
+    background-color: transparent;
+    color: var(--color-text-dark) !important;
+    padding: 0.5rem 0.75rem;
+    box-shadow: none;
 }
 
 .nav-contact:hover {
-    background-color: var(--color-wood-accent); /* Nền Mộc khi hover */
-    transform: translateY(-2px); /* Hiệu ứng nhấn nhẹ */
+    background-color: var(--color-wood-accent);
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(16, 185, 129, 0.6);
 }
 
