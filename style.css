@@ -99,19 +99,23 @@ body {
     gap: 3rem;
     /* Mặc định cho màn hình lớn: 2 cột */
     grid-template-columns: 1fr 2fr;
+    /* Đảm bảo các item (cột) giãn ra bằng chiều cao của Grid container */
+    align-items: stretch;
 }
 
 /* Cột Trái: Thông tin cơ bản & Quote */
 .left-column {
+    /* Quan trọng: Thiết lập lại Flex để nội dung được căn giữa trong chiều cao đã giãn */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    /* Đảm bảo left-column chiếm hết chiều cao của Grid cell */
+    height: 100%; 
     padding: 1.5rem;
     background-color: var(--color-text-light);
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    /* ĐÃ BỎ: height: fit-content; => Để nó tự giãn ra bằng chiều cao của cột bên cạnh (tính năng mặc định của Grid) */
     border-left: 5px solid var(--color-wood-accent); /* Viền Mộc */
 }
 
@@ -142,6 +146,9 @@ body {
     margin-top: 1.5rem;
     padding: 1rem;
     border-top: 2px dashed var(--color-fire-light);
+    /* Tăng cường độ ưu tiên giãn nở của quote-box để nó chiếm hết phần không gian trống còn lại */
+    margin-top: auto; 
+    padding-top: 2rem;
 }
 
 .favorite-quote {
@@ -223,5 +230,7 @@ body {
 
     .left-column, .right-column {
         padding: 1.5rem;
+        /* Loại bỏ căn chỉnh chiều cao trên mobile để tránh khung hình quá lớn */
+        height: auto; 
     }
 }
