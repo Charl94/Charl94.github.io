@@ -6,7 +6,7 @@
 :root {
     /* Mệnh Hỏa (Sơn Đầu Hỏa) */
     --color-fire-primary: #C2410C; /* Cam Đất Sâu - Chủ đạo */
-    --color-fire-light: #FDBA74;   /* Cam Nhạt - Nền/Highlight */
+    --color-fire-light: #FDBA74;    /* Cam Nhạt - Nền/Highlight */
     /* Mệnh Mộc (Tương Sinh) */
     --color-wood-accent: #10B981;  /* Xanh Lục Bảo - Tương tác/Hover */
     /* Màu nền & Text */
@@ -111,7 +111,7 @@ body {
     background-color: var(--color-text-light);
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    height: fit-content; /* Giữ cột nhỏ gọn */
+    /* ĐÃ BỎ: height: fit-content; => Để nó tự giãn ra bằng chiều cao của cột bên cạnh (tính năng mặc định của Grid) */
     border-left: 5px solid var(--color-wood-accent); /* Viền Mộc */
 }
 
