@@ -234,34 +234,88 @@ h1, h2, h3 {
 }
 
 /* -------------------- RESPONSIVE DESIGN (Cho Mobile) -------------------- */
+@media (max-width: 1024px) {
+    .top-posts-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .old-posts-vertical-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .section-subtitle {
+        font-size: 1.5em;
+    }
+}
+
 @media (max-width: 768px) {
     .main-header {
-        flex-direction: column; /* Chuyển Header thành cột */
+        flex-direction: column;
         text-align: center;
         gap: 1rem;
-		position: static;
-	}
-	.logo{
-		position: static;
-		transform: none;
-		margin-bottom: 0.5rem;
-	}
+        position: static;
+        padding: 1rem 5%;
+    }
+    .logo{
+        position: static;
+        transform: none;
+        margin-bottom: 0.5rem;
+    }
+
+    .logo-name {
+        font-size: 1.5rem;
+    }
 
     .main-nav {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
-    .main-content {
-        /* Chuyển sang bố cục 1 cột trên màn hình nhỏ */
-        grid-template-columns: 1fr;
-        width: 95%;
-        margin: 2rem auto;
+    .nav-item {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .blog-section h1 {
+        font-size: 2em;
+        margin-bottom: 1rem; /* Giảm thêm trên mobile */
     }
 
-    .left-column, .right-column {
-        padding: 1.5rem;
-        /* Trên mobile không cần chiều cao bằng nhau, tự động co giãn */
-        height: auto; 
+    .section-subtitle {
+        font-size: 1.2em;
+        margin-top: 1.5rem; /* Giảm thêm trên mobile */
+        margin-bottom: 0.8rem; /* Giảm thêm trên mobile */
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 15px; 
+    }
+
+    .top-posts-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .grid-card {
+        min-height: 380px; 
+    }
+    .grid-card img {
+        height: 150px;
+    }
+
+    .old-posts-vertical-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    .old-posts-vertical-grid .grid-card {
+        min-height: 250px;
+    }
+    .old-posts-vertical-grid .grid-card img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .old-posts-vertical-grid {
+        grid-template-columns: 1fr; 
     }
 }
